@@ -22,8 +22,7 @@ public class MergeString {
     public static void main(String[] args) throws Exception {
 
         // Aşağıda iki ayrı çözüm bululnuyor. İkisinde de iki string sırasıyla birleştiriliyor.
-        //  Fakat problem tanımındaki gibi hrte + aars birleşiminden haratres sonucu alınmıyor.
-        // Şimdilik 2500 sınırını sağlayamadım. Döneceğim.
+        // Fakat problem tanımındaki gibi hrte + aars birleşiminden haratres sonucu yerine hrteaars sonucu alınıyor.
 
         Scanner sc = new Scanner(System.in);
         System.out.println("İlk string'i giriniz: ");
@@ -36,12 +35,12 @@ public class MergeString {
         String noSpacesSecond = secondString.replaceAll(" ", "").trim();
 
         try {
-            if (1 < firstString.length() && secondString.length() < 2500) {
+            if (1 < firstString.length() && firstString.length() < 2500 && 1 < secondString.length() && secondString.length() < 2500) {
 
                 String merged = noSpacesFirst + noSpacesSecond;
                 System.out.println("Tek tek merge edilmiş halleri: " + merged);
 
-                // Ayrıca concat edebiliriz iki string'i
+                // Ayrıca concat edebiliriz iki string'i:
                 String concatStrings = noSpacesFirst.concat(noSpacesSecond);
                 System.out.println("Concat versiyonu: " + concatStrings);
 
