@@ -32,6 +32,8 @@ public class YakinNumaralarProblemi {
         // Scanner ile alarak testleri geçer mi bilmiyorum, dışarıdan alınacak array metot tanımında olmalı aslında.
         // İlk soruyu çözdüğüm şekilde Scanner ile devam ediyorum şimdilik.
 
+        // Arraylist boyutu binden büyük seçildiğinde hatayı bininci değer de girildikten sonra veriyor!
+
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Gireceğiniz array'in kaç değer alacağını belirtin: ");
@@ -61,7 +63,7 @@ public class YakinNumaralarProblemi {
 
                 int diff = Math.abs(arr.get(i + 1) - arr.get(i));
 
-                if (-20000 < arr.get(i) || arr.get(i) < 20000){
+                if (-20000 > arr.get(i) || arr.get(i) > 20000){
                     throw new IndexOutOfBoundsException();
                 } else if (diff > 0 && diff == minDiff) {
                     System.out.println(arr.get(i) + " " + arr.get(i + 1));
