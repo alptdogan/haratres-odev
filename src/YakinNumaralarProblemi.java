@@ -42,7 +42,7 @@ public class YakinNumaralarProblemi {
         List<Integer> arr = new ArrayList<>();
 
         for (int i = 0; i < arrSize; i++) {
-            System.out.println("Array'deki sıradaki sayıyı giriniz: ");
+            System.out.println("Array'deki " + (i + 1) + ". sayıyı giriniz: ");
             int input = sc.nextInt();
 
             arr.add(input);
