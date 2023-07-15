@@ -31,10 +31,10 @@ public class MergeString {
         System.out.println("İkinci string'i giriniz: ");
         String secondString = sc.nextLine();
 
-        String noSpacesFirst = firstString.replaceAll(" ", "").trim();
-        String noSpacesSecond = secondString.replaceAll(" ", "").trim();
-
         try {
+            String noSpacesFirst = firstString.trim();
+            String noSpacesSecond = secondString.trim();
+
             if (1 < firstString.length() && firstString.length() < 2500 && 1 < secondString.length() && secondString.length() < 2500) {
 
                 String merged = noSpacesFirst + noSpacesSecond;
