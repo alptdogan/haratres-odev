@@ -35,19 +35,21 @@ public class MergeString {
         String noSpacesFirst = firstString.replaceAll(" ", "").trim();
         String noSpacesSecond = secondString.replaceAll(" ", "").trim();
 
-        if (1 < firstString.length() && secondString.length() < 2500) {
+        try {
+            if (1 < firstString.length() && secondString.length() < 2500) {
 
                 String merged = noSpacesFirst + noSpacesSecond;
-
                 System.out.println("Tek tek merge edilmiş halleri: " + merged);
 
                 // Ayrıca concat edebiliriz iki string'i
                 String concatStrings = noSpacesFirst.concat(noSpacesSecond);
-
                 System.out.println("Concat versiyonu: " + concatStrings);
 
-        }else {
-                throw new Exception("En az 2 en fazla 2499 karakterli bir string girmelisiniz!");
+            } else {
+                throw new Exception();
+            }
+        }catch (Exception exc) {
+            System.out.println("En az 2 en fazla 2499 karakterli bir string girmelisiniz!");
         }
 
     }
