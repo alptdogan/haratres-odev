@@ -31,7 +31,7 @@ public class YakinNumaralarProblemi {
 
         // Scanner ile alarak testleri geçer mi bilmiyorum, dışarıdan alınacak array metot tanımında olmalı aslında.
         // İlk soruyu çözdüğüm şekilde Scanner ile devam ediyorum şimdilik.
-        // 20000 bin sınırları koydum fakat dahil etmediğim halde dahil gibi döbüş alıyorum. +-20001 verdiğimde hata geliyor ama +-20000'de de vermeliydi.
+        // 20000 sınırları koydum fakat dahil etmediğim halde dahil gibi döbüş alıyorum. +-20001 verdiğimde hata geliyor ama +-20000'de de vermeliydi.
 
         Scanner sc = new Scanner(System.in);
 
