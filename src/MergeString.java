@@ -23,6 +23,7 @@ public class MergeString {
 
         // Aşağıda iki ayrı çözüm bululnuyor. İkisinde de iki string sırasıyla birleştiriliyor.
         //  Fakat problem tanımındaki gibi hrte + aars birleşiminden haratres sonucu alınmıyor.
+        // Şimdilik 2500 sınırını sağlayamadım. Döneceğim.
 
         Scanner sc = new Scanner(System.in);
         System.out.println("İlk string'i giriniz: ");
@@ -45,9 +46,9 @@ public class MergeString {
 
                 System.out.println("Concat versiyonu: " + concatStrings);
 
-            }else {
+        }else {
                 throw new Exception("En az 2 en fazla 2499 karakterli bir string girmelisiniz!");
-            }
+        }
 
     }
 
