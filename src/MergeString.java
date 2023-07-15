@@ -32,6 +32,7 @@ public class MergeString {
         String secondString = sc.nextLine();
 
         try {
+            // trim'lemeden önce boşlukları da replace ediyordum fakat sanırım buna gerek yok
             String noSpacesFirst = firstString.trim();
             String noSpacesSecond = secondString.trim();
 
