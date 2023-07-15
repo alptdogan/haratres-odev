@@ -29,7 +29,7 @@ public class YakinNumaralarProblemi {
 
     public static void main(String[] args) {
 
-        // elle 2'ye sınırladım fakat diğer array'de çalışmayacak. başka bir değişkene setlemem lazım.
+        // elle 2'ye sınırladım fakat diğer array'de çalışmayacak. başka bir değişkene setlemem lazım
 
         int[] arr = {3, 1, 5, 23, 2, 4, 9, 10, 15, 31};
         Arrays.sort(arr);
