@@ -10,7 +10,8 @@
 //Kısıtlar
 //a ve b nin boyuları 1< a, b < 2500 olmalıdır
 //
-//Ödev java programlama dilinde yazılacaktır. Her ödev ayrı sınıfta olacaktır. Değerlendirme işlemi her için önceden yazılmış unit test methodlarından geçirilerek yapılacaktır.
+//Ödev java programlama dilinde yazılacaktır.
+// Her ödev ayrı sınıfta olacaktır. Değerlendirme işlemi her için önceden yazılmış unit test methodlarından geçirilerek yapılacaktır.
 //
 //Kısıtlara uymayan durumlarda system exception throw etmeli.
 
@@ -22,12 +23,22 @@ public class MergeString {
 
     public static void main(String[] args) {
 
+        // Aşağıda iki ayrı çözüm bululnuyor. İkisinde de iki string sırasıyla birleştiriliyor.
+        // İkisinde de stringler birleştiriliyor fakat
+        // problem tanımındaki gibi hrte + aars birleşiminden haratres sonucu alınmıyor.
+
         String a = "hrte";
         String b = "aars";
 
         String merged = a + b;
 
         System.out.println(merged);
+
+        // Ayrıca concat edebiliriz iki string'i
+        String concatStrings = a.concat(b);
+
+        System.out.println(concatStrings);
+
 
     }
 
