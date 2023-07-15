@@ -27,13 +27,14 @@ import java.util.*;
 
 public class YakinNumaralarProblemi {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         // Scanner ile alarak testleri geçer mi bilmiyorum, dışarıdan alınacak array metot tanımında olmalı aslında.
         // İlk soruyu çözdüğüm şekilde Scanner ile devam ediyorum şimdilik.
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Gireceğiniz array'in uzunluğunu belirtin: ");
+
+        System.out.println("Gireceğiniz array'in kaç değer alacağını belirtin: ");
         int arrSize = sc.nextInt();
 
         List<Integer> arr = new ArrayList<>();
@@ -48,19 +49,36 @@ public class YakinNumaralarProblemi {
         Collections.sort(arr);
         int minDiff = Integer.MAX_VALUE;
 
-        System.out.println("Sonuç: ");
+        try {
 
-        for (int i = 0; i < arr.size() - 1; i++) {
-
-            int diff = Math.abs(arr.get(i + 1) - arr.get(i));
-
-            if (diff == minDiff) { ;
-                System.out.println(arr.get(i) + " " + arr.get(i + 1));
-            }else  if (diff < minDiff) {
-                minDiff = diff;
-                System.out.println(arr.get(i) + " " + arr.get(i + 1));
+            if (arrSize <= 1 || 1000 <= arrSize) {
+                throw new RuntimeException();
             }
 
+//            System.out.println("Sonuç: ");
+
+                for (int i = 0; i < arr.size() - 1; i++) {
+
+                int diff = Math.abs(arr.get(i + 1) - arr.get(i));
+
+                if (-20000 < arr.get(i) || arr.get(i) < 20000){
+                    throw new IndexOutOfBoundsException();
+                } else if (diff > 0 && diff == minDiff) {
+                    System.out.println(arr.get(i) + " " + arr.get(i + 1));
+                } else if (diff > 0 && diff < minDiff) {
+                    minDiff = diff;
+                    System.out.println(arr.get(i) + " " + arr.get(i + 1));
+                } else if (diff <= 0) {
+                    throw new Exception();
+                }
+
+            }
+        }catch (IndexOutOfBoundsException outOfBoundsExc) {
+            System.out.println("-_-_- BOOOMMM!! BU BİR HATA MESAJIDIR! Hatanız: \n Değerleriniz en az -19.999, en fazla 19.999 olabilir. -_-_-");
+        }catch (RuntimeException rExc) {
+            System.out.println("-_-_- BOOOMMM!! BU BİR HATA MESAJIDIR! Hatanız: \n  Array en az 2, en fazla 999 değer alabilir. -_-_-");
+        }catch (Exception exc) {
+            System.out.println("-_-_- BOOOMMM!! BU BİR HATA MESAJIDIR! Hatanız: \n  Herhangi iki değer arasındaki fark 0'dan büyük olmalı. Tüm değerler aynı olamaz. -_-_-");
         }
 
     }
