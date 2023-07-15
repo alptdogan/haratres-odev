@@ -22,24 +22,26 @@ public class MergeString {
     public static void main(String[] args) throws Exception {
 
         // Aşağıda iki ayrı çözüm bululnuyor. İkisinde de iki string sırasıyla birleştiriliyor.
-        // İkisinde de stringler birleştiriliyor fakat
-        // problem tanımındaki gibi hrte + aars birleşiminden haratres sonucu alınmıyor.
+        //  Fakat problem tanımındaki gibi hrte + aars birleşiminden haratres sonucu alınmıyor.
 
         Scanner sc = new Scanner(System.in);
         System.out.println("İlk string'i giriniz: ");
-        String firstString = sc.next();
+        String firstString = sc.nextLine();
 
         System.out.println("İkinci string'i giriniz: ");
-        String secondString = sc.next();
+        String secondString = sc.nextLine();
+
+        String noSpacesFirst = firstString.replaceAll(" ", "").trim();
+        String noSpacesSecond = secondString.replaceAll(" ", "").trim();
 
         if (1 < firstString.length() && secondString.length() < 2500) {
 
-                String merged = firstString + secondString;
+                String merged = noSpacesFirst + noSpacesSecond;
 
                 System.out.println("Tek tek merge edilmiş halleri: " + merged);
 
                 // Ayrıca concat edebiliriz iki string'i
-                String concatStrings = firstString.concat(secondString);
+                String concatStrings = noSpacesFirst.concat(noSpacesSecond);
 
                 System.out.println("Concat versiyonu: " + concatStrings);
 
