@@ -31,6 +31,7 @@ public class YakinNumaralarProblemi {
 
         // Scanner ile alarak testleri geçer mi bilmiyorum, dışarıdan alınacak array metot tanımında olmalı aslında.
         // İlk soruyu çözdüğüm şekilde Scanner ile devam ediyorum şimdilik.
+        // 20000 bin sınırları koydum fakat dahil etmediğim halde dahil gibi döbüş alıyorum. +-20001 verdiğimde hata geliyor ama +-20000'de de vermeliydi.
 
         Scanner sc = new Scanner(System.in);
 
@@ -38,7 +39,6 @@ public class YakinNumaralarProblemi {
         int arrSize = sc.nextInt();
 
         try {
-
             if (arrSize > 1 && 1000 > arrSize) {
 
                 List<Integer> arr = new ArrayList<>();
@@ -48,20 +48,20 @@ public class YakinNumaralarProblemi {
                     int input = sc.nextInt();
 
                     arr.add(input);
+
+                    if (-20000 > arr.get(i) || arr.get(i) > 20000) {
+                        throw new IndexOutOfBoundsException();
+                    }
                 }
 
                 Collections.sort(arr);
                 int minDiff = Integer.MAX_VALUE;
 
-                try {
-
                     for (int i = 0; i < arr.size() - 1; i++) {
 
                         int diff = Math.abs(arr.get(i + 1) - arr.get(i));
 
-                        if (-20000 > arr.get(i) || arr.get(i) > 20000) {
-                            throw new IndexOutOfBoundsException();
-                        } else if (diff > 0 && diff == minDiff) {
+                        if (diff > 0 && diff == minDiff) {
                             System.out.println(arr.get(i) + " " + arr.get(i + 1));
                         } else if (diff > 0 && diff < minDiff) {
                             minDiff = diff;
@@ -69,21 +69,19 @@ public class YakinNumaralarProblemi {
                         } else if (diff <= 0) {
                             throw new Exception();
                         }
-
                     }
-
-                } catch (IndexOutOfBoundsException outOfBoundsExc) {
-                    System.out.println("-_-_- BOOOMMM!! BU BİR HATA MESAJIDIR! Hatanız: \n Değerleriniz en az -19.999, en fazla 19.999 olabilir. -_-_-");
-                } catch (Exception exc) {
-                    System.out.println("-_-_- BOOOMMM!! BU BİR HATA MESAJIDIR! Hatanız: \n  Herhangi iki değer arasındaki fark 0'dan büyük olmalı. Tüm değerler aynı olamaz. -_-_-");
-                }
 
             } else {
                 throw new RuntimeException();
             }
+        } catch (IndexOutOfBoundsException outOfBoundsExc) {
+            System.out.println("-_-_- BOOOMMM!! BU BİR HATA MESAJIDIR! Hatanız: \n Değerleriniz en az -19.999, en fazla 19.999 olabilir. -_-_-");
         } catch (RuntimeException rExc) {
             System.out.println("-_-_- BOOOMMM!! BU BİR HATA MESAJIDIR! Hatanız: \n  Array en az 2, en fazla 999 değer alabilir. -_-_-");
+        }catch (Exception exc) {
+            System.out.println("-_-_- BOOOMMM!! BU BİR HATA MESAJIDIR! Hatanız: \n  Herhangi iki değer arasındaki fark 0'dan büyük olmalı. Tüm değerler aynı olamaz. -_-_-");
         }
+
     }
 
 }
