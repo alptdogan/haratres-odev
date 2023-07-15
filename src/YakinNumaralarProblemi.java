@@ -29,16 +29,18 @@ public class YakinNumaralarProblemi {
 
     public static void main(String[] args) {
 
-        // elle 2'ye sınırladım fakat diğer array'de çalışmayacak. başka bir değişkene setlemem lazım
-
         int[] arr = {3, 1, 5, 23, 2, 4, 9, 10, 15, 31};
         Arrays.sort(arr);
+        int minDiff = Integer.MAX_VALUE;
 
         for (int i = 0; i < arr.length - 1; i++) {
 
             int diff = Math.abs(arr[i + 1] - arr[i]);
 
-            if (diff < 2) {
+            if (diff == minDiff) {
+                System.out.println(arr[i] + " " + arr[i + 1]);
+            }else  if (diff < minDiff) {
+                minDiff = diff;
                 System.out.println(arr[i] + " " + arr[i + 1]);
             }
 
