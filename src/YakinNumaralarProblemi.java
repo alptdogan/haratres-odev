@@ -23,25 +23,42 @@
 //
 //        Kısıtlara uymayan durumlarda system exception throw etmeli.
 
-import java.util.Arrays;
+import java.util.*;
 
 public class YakinNumaralarProblemi {
 
     public static void main(String[] args) {
 
-        int[] arr = {3, 1, 5, 23, 2, 4, 9, 10, 15, 31};
-        Arrays.sort(arr);
+        // Scanner ile alarak testleri geçer mi bilmiyorum, dışarıdan alınacak array metot tanımında olmalı aslında.
+        // İlk soruyu çözdüğüm şekilde Scanner ile devam ediyorum şimdilik.
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Gireceğiniz array'in uzunluğunu belirtin: ");
+        int arrSize = sc.nextInt();
+
+        List<Integer> arr = new ArrayList<>();
+
+        for (int i = 0; i < arrSize; i++) {
+            System.out.println("Array'deki sıradaki sayıyı giriniz: ");
+            int input = sc.nextInt();
+
+            arr.add(input);
+        }
+
+        Collections.sort(arr);
         int minDiff = Integer.MAX_VALUE;
 
-        for (int i = 0; i < arr.length - 1; i++) {
+        System.out.println("Sonuç: ");
 
-            int diff = Math.abs(arr[i + 1] - arr[i]);
+        for (int i = 0; i < arr.size() - 1; i++) {
 
-            if (diff == minDiff) {
-                System.out.println(arr[i] + " " + arr[i + 1]);
+            int diff = Math.abs(arr.get(i + 1) - arr.get(i));
+
+            if (diff == minDiff) { ;
+                System.out.println(arr.get(i) + " " + arr.get(i + 1));
             }else  if (diff < minDiff) {
                 minDiff = diff;
-                System.out.println(arr[i] + " " + arr[i + 1]);
+                System.out.println(arr.get(i) + " " + arr.get(i + 1));
             }
 
         }
