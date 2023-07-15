@@ -15,9 +15,7 @@
 //
 //Kısıtlara uymayan durumlarda system exception throw etmeli.
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.Scanner;
 
 public class MergeString {
 
@@ -27,17 +25,21 @@ public class MergeString {
         // İkisinde de stringler birleştiriliyor fakat
         // problem tanımındaki gibi hrte + aars birleşiminden haratres sonucu alınmıyor.
 
-        String a = "hrte";
-        String b = "aars";
+        Scanner sc = new Scanner(System.in);
+        System.out.println("İlk string'i giriniz: ");
+        String firstString = sc.next();
 
-        String merged = a + b;
+        System.out.println("İkinci string'i giriniz: ");
+        String secondString = sc.next();
 
-        System.out.println(merged);
+        String merged = firstString + secondString;
+
+        System.out.println("Tek tek merge edilmiş halleri: " + merged);
 
         // Ayrıca concat edebiliriz iki string'i
-        String concatStrings = a.concat(b);
+        String concatStrings = firstString.concat(secondString);
 
-        System.out.println(concatStrings);
+        System.out.println("Concat versiyonu: " + concatStrings);
 
 
     }
