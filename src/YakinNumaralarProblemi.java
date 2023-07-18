@@ -57,20 +57,35 @@ public class YakinNumaralarProblemi {
                 Collections.sort(arr);
                 int minDiff = Integer.MAX_VALUE;
                 int diff = Integer.MAX_VALUE;
+                int currentDiff;
+
+                boolean areAllValuesTheSame = true;
 
                     for (int i = 0; i < arr.size() - 1; i++) {
 
-                        int currentDiff = Math.abs(arr.get(i + 1) - arr.get(i));
+                        currentDiff = Math.abs(arr.get(i + 1) - arr.get(i));
 
                         if (currentDiff > 0 && currentDiff < diff) {
                             diff = currentDiff;
                             minDiff = currentDiff;
                         } else if (currentDiff > 0 && currentDiff == diff) {
                             minDiff = currentDiff;
-                        } else if (currentDiff <= 0) {
-                            throw new Exception();
                         }
+//                        Aşağıda yorumdaki condition yüzünden herhangi iki değeri eşit olduğunda farklı değerler arası farkları hesaplamadan exc fırlatıyordu.
+//                        Tüm değerler eşit olmadıkça throw etmemesi için yukarıdaki boolean değişkeni tanımlayıp for döngüsünün dışında kontrol etmesini sağladım.
+//                        } else if (currentDiff <= 0) {
+//                            throw new Exception();
+//                        }
+
+                        if (!arr.get(i).equals(arr.get(i + 1))) {
+                            areAllValuesTheSame = false;
+                        }
+
                     }
+//                    Hatayı artık burada ve gerektiğinde fırlatıyor:
+                if (areAllValuesTheSame == true) {
+                    throw new Exception();
+                }
 
                 for (int j = 0; j < arr.size() - 1; j++) {
                     if (Math.abs(arr.get(j + 1) - arr.get(j)) == minDiff) {
